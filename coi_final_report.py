@@ -276,7 +276,7 @@ def bg_lookup_table_to_geometry(lookup_df, state, colab=False):
     """
     bg_key = "GEOID10"
     if colab == True:
-          bg_path = /content/sub-analysis-colab/michigan/michigan_bg10.shp
+          bg_path = "/content/sub-analysis-colab/michigan/michigan_bg10.shp"
     else:
           bg_path = state + "/" + state + "_bg10.shp"
     bg_shp = gpd.read_file(bg_path)
