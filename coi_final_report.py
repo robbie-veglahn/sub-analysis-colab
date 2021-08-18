@@ -234,7 +234,7 @@ def visualize_coi(plan_ids, df, lookup_table, state="Michigan", title=None, read
                                 # range_color=(0, 12),
                                 mapbox_style="carto-positron",
                                 zoom=7, center = {"lat": 42.96, "lon": -86.66},
-                                hover_data={"Plan ID":lookup_subset.index},
+                              #  hover_data={"Plan ID":lookup_subset.index},
                                 # opacity=0.25,
                             #    facet_col="cluster",
                             #    scope="usa"
