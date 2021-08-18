@@ -269,13 +269,16 @@ def find_lookup_subset(lookup_df, plan_ids: list):
     return subset
 
 
-def bg_lookup_table_to_geometry(lookup_df, state):
+def bg_lookup_table_to_geometry(lookup_df, state, colab=False):
     """
     Takes a block group (pref unit) lookup table, and returns a lookup table with...
     geopandas geometries for plotting with plotly chloropleth_mapbox
     """
     bg_key = "GEOID10"
-    bg_path = state + "/" + state + "_bg10.shp"
+    if colab == True:
+          bg_path = /content/sub-analysis-colab/michigan/michigan_bg10.shp
+    else:
+          bg_path = state + "/" + state + "_bg10.shp"
     bg_shp = gpd.read_file(bg_path)
     individ_cols = ['submission_text', 'area_text', 'area_name']
     geometry_lookup = pd.DataFrame()
