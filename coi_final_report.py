@@ -199,7 +199,7 @@ def find_coi_subset(coi_df: pd.DataFrame, plan_ids: list) -> pd.DataFrame:
     #         subset = subset.append(row)
     # return subset
 
-def visualize_coi(plan_ids, df, lookup_table, state="Michigan", title=None, read_csv=True, simple_plot=False):
+def visualize_coi(plan_ids, df, lookup_table, state="Michigan", title=None, read_csv=True, simple_plot=False, colab=False):
     """ 
     Takes in a list of plan_ids that make up a coi and a state to draw them on,
     plots the heatmap using Jack's plot_coi_heatmap code, and returns the
@@ -227,7 +227,7 @@ def visualize_coi(plan_ids, df, lookup_table, state="Michigan", title=None, read
         coi_maps.plot_coi_heatmap(dissolved_map, state, title=title)
 
     lookup_subset = find_lookup_subset(lookup_table, plan_ids)
-    coi_geoms = bg_lookup_table_to_geometry(lookup_subset, state)
+    coi_geoms = bg_lookup_table_to_geometry(lookup_subset, state, colab=colab)
     fig = px.choropleth_mapbox(lookup_subset, geojson=coi_geoms.geometry, 
                                 locations=lookup_subset.index, color=lookup_subset.index,
                                 color_continuous_scale=[[0, 'rgba(0,0,255,0)'], [1, 'rgb(255,0,0,1)']],
